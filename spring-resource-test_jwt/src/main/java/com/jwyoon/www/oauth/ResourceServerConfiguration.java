@@ -1,6 +1,7 @@
 package com.jwyoon.www.oauth;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import javax.annotation.Resource;
@@ -31,8 +32,8 @@ import com.jwyoon.www.common.util.BCUtils;
 @EnableResourceServer
 public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter {
 
-    private String[] auths = new String[]{"ROLE_USER", "ROLE_ADMIN", "ROLE_SECOND_ON", "ROLE_SECOND_OFF", "ROLE_PHONE", "ROLE_OTP", "ROLE_EMAIL", "ROLE_ACCOUNT"};
-
+	private String[] auths = new String[]{"ROLE_USER", "ROLE_ADMIN", "ROLE_SECOND_ON", "ROLE_SECOND_OFF", "ROLE_PHONE", "ROLE_OTP", "ROLE_EMAIL", "ROLE_ACCOUNT"};
+    private String[] allowHeader = new String[] {"http://localhost:8081","http://localhost:8080"};
     private AccessDeniedHandler accessDeniedHandler;
 
     @Resource(name = "dataSource")
@@ -46,14 +47,14 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     @Bean
     public JwtAccessTokenConverter accessTokenConverter() {
     	JwtAccessTokenConverter jwt = new JwtAccessTokenConverter();
-    	jwt.setSigningKey("jwt");
+    	jwt.setSigningKey("testjwtjwyoon");
     	return jwt;
     }
 
     @Bean
     CorsConfigurationSource corsConfigurationSource() {
         List<String> allowOrigin = new ArrayList<>();
-        allowOrigin.add("*");
+        allowOrigin.addAll(Arrays.asList(allowHeader));
         CorsConfiguration configuration = new CorsConfiguration();
         configuration.setAllowedOrigins(allowOrigin);
         configuration.addAllowedHeader("*");
@@ -103,6 +104,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         http.headers().frameOptions().disable().and().cors().and().csrf().disable().authorizeRequests()
                 .antMatchers("/secured/**").permitAll()
                 .antMatchers("/public/**").permitAll()
+                .antMatchers("/api/token").permitAll() 
                 .antMatchers("/private/**").hasAnyAuthority(auths)
                 .antMatchers("/403").permitAll()
                 .anyRequest().authenticated();

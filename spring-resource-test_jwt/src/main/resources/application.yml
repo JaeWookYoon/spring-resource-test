@@ -1,12 +1,40 @@
 server:
   port: 8081
-  
-spring: 
+
+tomcat:
+  ajp:
+   protocol: AJP/1.3
+   port: 8002
+
+spring:
+  profiles:
+    active: debug
+---
+spring:
+  profiles: debug
   datasource:
-    url: jdbc:postgresql://localhost:5432/test
-    username: postgres
-    password: tmtl5467
-    driver-class-name: org.postgresql.Driver
+    username: admin
+    password: Rorlwlakfk18@
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@jakedbdb_high?TNS_ADMIN=./src/main/resources/wallet
+    
+  jpa: 
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+    properties: 
+      hibernate: 
+        dialect: org.hibernate.dialect.OracleDialect
+        temp.use_jdbc_metadata_defaults: false
+
+---
+spring: 
+  profiles: release
+  datasource:
+    username: admin
+    password: Rorlwlakfk18@
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: jdbc:oracle:thin:@jakedbdb_high?TNS_ADMIN=./wallet
 
   jpa: 
     show-sql: true
@@ -14,20 +42,25 @@ spring:
       ddl-auto: none
     properties: 
       hibernate: 
-        dialect: org.hibernate.dialect.PostgreSQLDialect
+        dialect: org.hibernate.dialect.OracleDialect
         temp.use_jdbc_metadata_defaults: false
       main:
         allow-bean-definition-overriding: true
     database: default
-
+  thymeleaf:
+        prefix : classpath:/templates/
+        suffix : .html
+        cache : false
+        check-template-location: true
+        order : 0
+---
 security: 
   oauth2:
     client:
       auto-approve-scopes: ".*"
     authorization:
       token-key-access: isAuthenticated()
-#kafka:
-#   bootstrapAddress: localhost:9092
-#message:
-#   topic: mytopic
-
+kafka:
+   bootstrapAddress: localhost:9092
+message:
+   topic: mytopic
