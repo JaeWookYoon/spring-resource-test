@@ -1,7 +1,18 @@
 package com.jwyoon.www.elastic;
 
+import org.apache.http.HttpHost;
+import org.elasticsearch.client.RestClient;
+import org.elasticsearch.client.RestClientBuilder;
+import org.elasticsearch.client.RestHighLevelClient;
+
 @SuppressWarnings("resource")
 public class ElasticsearchConnection {
+	String schema = "http";
+	String hostName = "localhost";
+	int port = 9200;
+	HttpHost host = new HttpHost(hostName,port,schema);
+	RestClientBuilder restClient = RestClient.builder(host);
+	RestHighLevelClient highClient = new RestHighLevelClient(restClient);
 	
 //	private Logger logger = LoggerFactory.getLogger(getClass());	
 //	private Settings setting = Settings.builder().put("cluster.name", "sks").put("node.name", "sks-master") // elastic search �젙蹂� Setting
