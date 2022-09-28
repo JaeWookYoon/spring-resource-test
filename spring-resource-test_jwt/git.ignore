@@ -117,6 +117,9 @@ $RECYCLE.BIN/
 *.msm
 *.msp
 
+#DB files
+*/wallet/
+
 # Windows shortcuts
 *.lnk
 
