@@ -29,7 +29,7 @@ import com.jwyoon.www.repository.OauthClientDetailsRepository;
 import com.jwyoon.www.repository.UserAuthRepository;
 import com.jwyoon.www.repository.UserListRepository;
 
-@RequestMapping(value = "/public", produces = "application/json")
+@RequestMapping(value = "/api/public", produces = "application/json")
 @RestController
 public class PublicInsertController {
 	private final static String PATH_URL = "/insert";

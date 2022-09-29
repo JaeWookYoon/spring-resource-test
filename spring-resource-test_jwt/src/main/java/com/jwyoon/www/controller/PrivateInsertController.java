@@ -42,7 +42,7 @@ import com.jwyoon.www.model.UserWallet;
 import com.jwyoon.www.model.WalletList;
 
 
-@RequestMapping(value = "/private", produces = "application/json")
+@RequestMapping(value = "/api/private", produces = "application/json")
 @RestController
 public class PrivateInsertController {
 
@@ -88,7 +88,7 @@ public class PrivateInsertController {
 		 * insertList.setIdx(UUID.randomUUID().toString());
 		 * insertList.setUserIdx(userIdx); insertList.setWalletIdx(walletIdx);
 		 * insertList.setAmount(0); insertList.setAveragePriceDollar(price > 0?price:0);
-		 * //insert userWalletRepository.save(insertList); //吏�媛� �깮�꽦 ��??���??
+		 * //insert userWalletRepository.save(insertList); //吏�媛� �깮�꽦 ��??���??
 		 * existsUserWallet = userWalletRepository.existsByUserIdxAndWalletIdx(userIdx,
 		 * walletIdx);
 		 * 
@@ -174,7 +174,7 @@ public class PrivateInsertController {
 			}
 			File file = new File(path + "/" + code + ".json");
 			if (!file.exists()) {
-				String fileName = WalletUtils.generateLightNewWalletFile(password, new File(String.valueOf(path))); // 吏�媛묒�??�꽦
+				String fileName = WalletUtils.generateLightNewWalletFile(password, new File(String.valueOf(path))); // 吏�媛묒�??�꽦
 				String tempPath = path + "/" + fileName;
 				
 				Credentials credentials = WalletUtils.loadCredentials(password, tempPath);

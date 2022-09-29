@@ -29,7 +29,7 @@ import com.jwyoon.www.model.MessageConsumer;
 import com.jwyoon.www.model.MessageProducer;
 import com.jwyoon.www.repository.UserListRepository;
 
-@RequestMapping(value = "/public", produces = "application/json")
+@RequestMapping(value = "/api/public", produces = "application/json")
 @RestController
 public class PublicSelectController {
 
@@ -47,7 +47,7 @@ public class PublicSelectController {
 	@GetMapping(value=Constants.BASIC_URL + "/test")
 	public String test(String test) {
 		//producer.sendMessage("myTopic", "HELLO WORLD!");
-		return userListRepository.findAll().get(0).getUserId();		
+		return "¼º°ø";
 	}
 	@GetMapping(value=Constants.BASIC_URL + "/test1")
 	public String test1(String test) {

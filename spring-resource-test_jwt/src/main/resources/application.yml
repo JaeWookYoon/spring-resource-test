@@ -16,7 +16,7 @@ spring:
     username: ENC(1mMF+C8fRMVx7FDWsWD1Hg==)
     password: ENC(KjltoRkJh7F1UxbHXMDgGoLpp16+1KpA)
     driver-class-name: oracle.jdbc.OracleDriver
-    url: ENC(nXnj6Lx6gI44VuI7pNBnB8P1N6grm5/AOgb8sEZCPCwNN0ubWZNHyjujbmlGVmzxiYZbuL0ixMUlm3JZ5uk4nvFGA0HTVFgwghNJaFN1nMk=)
+    url: ENC(lSTZlUmvbfBTjwfwcTHudwxL8C/r6H/L/tn6Bfrajhxou8BEj6B+Y6VNjv2+H/HvWqEat/StSDO/00S/d5dYC0dHJjjVHk92imImaI55yGgUBDUm/P1/FVog8/Ts4Lwq27KM5RL1bBxeDdgxEMokxN+tgJQ2+EM8hCokrI6L1tPW/+VrfOj/mN2QyLcAd+UfnRaTePdIxknpNG4yX7pmDbdJhjZThROFk53lrLIsU7Sf0v0e8bFa9FPeO8yhZCVscZsJ9HWIj0W+4bZexTOXr7+Tu9aLwTX/PXy79JyHHXYZXZq7dBLZkcVQDETSyfBB0Aco0DXbY0NFYr8BfeL75l/k6hLd3GkHunC1uNKn8UQ4RGopuTT3wcQTQYN0GuG/MXjxGewQcpk9wmknk9GsfxPoEaKITvwFgno3jW75rhp0dSYgEMn2jyOIAr1uHhmwtjvIh5/d9A/JL6sReYSh2LRjSvXKF3MP5svi7rUK2DHND+J6ZdHdzmFi3J1YPB/G)
     
   jpa: 
     show-sql: true
@@ -34,7 +34,7 @@ spring:
     username: ENC(eqp8o3Jy6ho+oqFMcp0MJA==)
     password: ENC(NgfQWYODKdrIykPuyOoCZeVS0VjY/Mut)
     driver-class-name: oracle.jdbc.OracleDriver
-    url: ENC(PyBS/Tw2fBr9JjLXzKfzt3wZWipOLl8AGvRmRul08qmHrJghtXL3DIem3vQLUgHZi7y/3rZTy3E4ZZijbc8v+IbbeAK6ngsE/z5YsjP9Q3U=)
+    url: ENC(KzCS6fdZjbNl+dR91FawW+KHCLN+IUnPPUiN8+tRggqyQxkzvBOIjVLB9h2zZfhBYxMLBSnoXI77C77cZZG2657I9LAcKttBcGYCHYKcdWp0dzteBCFiMfCTsilrUiEgtJPWBstxf7H4+pVBsoXpSD5cA0Vhi5LfAK797g7HHL8DLHtNuBJ4r2NQxEiC1epGvgWW+QicAbAjp7fJ+SPGIMN9jQcBecZlTk0hEdhOMddH3C/gv/E2dbV6wseQ7MBoWeOIXCqHgRQsUn0a1JLb9+Mlc1oZLL+FeBa9dCh0PbBkNBHnhthrwUjF/HNRQxkad5rb3XcspOY71W0prKuQlvs2h3dmi2hOknTi4GS5h01DO7t/lftwBIxQ4RSTGMhjchfzTTt6MjQneGuekn8fmytZ4s1NKmVCJZo/fp2h0tONPyT8JIaT1CcNZqUh4IS2wkLwgsaKEmaYSiBSzIWlqRL6Rw+2ZQqR9pcTfB3Z4PVQiojOQcOfBNiAYrJYcZzc)
 
   jpa: 
     show-sql: true
@@ -64,6 +64,7 @@ kafka:
    bootstrapAddress: localhost:9092
 message:
    topic: mytopic
+
 jasypt:
   encryptor:
     bean: jasyptStringEncryptor     

@@ -7,6 +7,7 @@ import org.apache.commons.codec.binary.Base64;
 import org.apache.http.HttpHeaders;
 import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -24,7 +25,8 @@ import reactor.core.publisher.Mono;
 public class TempTestController {
 	
 	WebClient webClient = null;
-	
+	@Value("${oauth.jwt.server}")
+	private String oauthUrl;
     private final UserListRepository userListRepository;
 	
     @Autowired
@@ -45,9 +47,8 @@ public class TempTestController {
         String authHeader = "Basic " + new String(encodedAuth);
 		webClient = WebClient.create();
 		Mono<JSONObject> result = webClient.post().
-		  uri("http://localhost:8080/oauth/token")
+		  uri(oauthUrl+"/oauth/token")
 		  .header(HttpHeaders.AUTHORIZATION, authHeader)
-		  //.header("Content-Type","application/x-www-form-urlencoded; charset=utf-8")
 		  .contentType(MediaType.APPLICATION_FORM_URLENCODED)
 		  .acceptCharset(Charset.forName("UTF-8"))
 		  .bodyValue("grant_type=password&username="+username+"&password="+password)			  

@@ -103,9 +103,9 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 
         http.headers().frameOptions().disable().and().cors().and().csrf().disable().authorizeRequests()
                 .antMatchers("/secured/**").permitAll()
-                .antMatchers("/public/**").permitAll()
+                .antMatchers("/api/public/**").permitAll()
                 .antMatchers("/api/token").permitAll() 
-                .antMatchers("/private/**").hasAnyAuthority(auths)
+                .antMatchers("/api/private/**").hasAnyAuthority(auths)
                 .antMatchers("/403").permitAll()
                 .anyRequest().authenticated();
 

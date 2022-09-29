@@ -31,7 +31,7 @@ import com.jwyoon.www.model.UserList;
 import com.jwyoon.www.oauth.PasswordEncoders;
 import com.jwyoon.www.repository.UserListRepository;
 
-@RequestMapping(value = "/private", produces = "application/json")
+@RequestMapping(value = "/api/private", produces = "application/json")
 @RestController
 public class PrivateSelectController {
 
