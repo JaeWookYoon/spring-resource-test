@@ -8,7 +8,7 @@ tomcat:
 
 spring:
   profiles:
-    active: debug
+    active: release
 ---
 spring:
   profiles: debug
